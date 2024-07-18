@@ -1,14 +1,18 @@
-import { createStore } from 'vuex';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-export default createStore({
+Vue.use(Vuex);
+
+export default new Vuex.Store({
   state: {
-  },
-  getters: {
+    organizations: [],
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    addOrganization(state, organization) {
+      state.organizations.push(organization);
+    },
+    removeOrganization(state, index) {
+      state.organizations.splice(index, 1);
+    },
   },
 });
